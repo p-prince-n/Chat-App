@@ -13,7 +13,7 @@ dotenv.config();
 const PORT=process.env.PORT;
 
 app.use(cors({
-    origin: "https://chat-app-yolh.onrender.com",
+    origin: "https://lucent-dolphin-0c83fd.netlify.app/",
     credentials: true,
 }))
 app.use(cookieParser())
