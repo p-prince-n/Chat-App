@@ -13,7 +13,7 @@ dotenv.config();
 const PORT=process.env.PORT;
 
 app.use(cors({
-    origin: "https://lucent-dolphin-0c83fd.netlify.app",
+    origin: "https://incredible-macaron-49f4f5.netlify.app",
     credentials: true,
 }))
 
