@@ -13,9 +13,10 @@ dotenv.config();
 const PORT=process.env.PORT;
 
 app.use(cors({
-    origin: "https://lucent-dolphin-0c83fd.netlify.app/",
+    origin: "https://lucent-dolphin-0c83fd.netlify.app",
     credentials: true,
 }))
+
 app.use(cookieParser())
 app.use(express.json({limit: '2mb'}));
 app.use('/api/auth', authRoute);
