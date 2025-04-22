@@ -79,22 +79,31 @@ export const useAuthStore = create((set, get) => ({
       set({ isUpdateingProfile: false });
     }
   },
-  connectSocket: ()=>{
-    const {authUser}=get();
-    if(!authUser || get().socket?.connected) return;
-    const socket=io(BASE_URL,{
+  connectSocket: () => {
+    const { authUser, onlineUsers } = get();
+    if (!authUser || get().socket?.connected) return;
+  
+    const socket = io(BASE_URL, {
       query: {
         userId: authUser._id,
-      }
+      },
     });
+  
     socket.connect();
-    set({socket: socket});
-    socket.on("getOnlineUsers", (userId)=>{
-      set({onlineUsers: userId })
+    set({ socket });
+  
+    socket.on("getOnlineUsers", (userIds) => {
+      set({ onlineUsers: userIds });
     });
-    
-
+  
+    socket.on("newUser", (newUser) => {
+      const currentUsers = get().allUsers || [];
+      const updatedUsers = [...currentUsers, newUser];
+      set({ allUsers: updatedUsers });
+      toast.success(`${newUser.fullName} joined!`);
+    });
   },
+  
   disconnectSocket: ()=>{
     if(get().socket?.connected) get().socket.disconnect();
   },
