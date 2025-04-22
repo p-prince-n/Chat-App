@@ -101,7 +101,7 @@ export const LoginPage = () => {
                 </div>
                 <div className="text-center">
                   <div className="text-base-content/60">
-                    Already have an account?{" "}
+                    Don't have an account?{" "}
                     <Link to="/signup" className="link link-primary">
                       Sign Up
                     </Link>

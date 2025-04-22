@@ -92,7 +92,7 @@ const MessageInput = () => {
             onClick={() =>fileInputRef.current?.click()
             }
           >
-            <Image size={20} />
+            <Image size={16} />
           </button>
         </div>
         <button
@@ -100,7 +100,7 @@ const MessageInput = () => {
           className="btn btn-primary btn-circle "
           disabled={!text.trim() && !imagePreview}
         >
-          <Send size={22} />
+          <Send size={18} />
         </button>
       </form>
     </div>
